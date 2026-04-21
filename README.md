@@ -2,19 +2,9 @@
 
 **A product-agnostic AI engine for rapid application development.**
 
-Launchpad AI provides the foundational infrastructure to build AI-powered applications. Clone this repo, configure it for your use case, and launch.
-
-## Purpose
-
-Build once, launch many. Launchpad AI extracts the reusable patterns from production AI applications (including a rubric-based assessment engine and an LMS course chatbot) into a general-purpose toolkit.
+> **Origin story**: After shipping [Project Blackboard](https://github.com/shawmillerman/project-blackboard) — a production AI grading system — I extracted the reusable infrastructure patterns into this general-purpose engine. Build once, launch many.
 
 ## What it provides
-
-### Core Infrastructure
-- **Text Processing**: Ingest PDFs, DOCX, TXT with quality validation
-- **Embedding & Retrieval**: Vector search with multiple provider support (OpenAI, Gemini, Anthropic)
-- **Calibration Engine**: Learn from expert examples over time
-- **Configuration System**: YAML/JSON-driven behavior (no hardcoded rules)
 - **Quality Gates**: Validation before processing (garbage-in detection)
 - **Citation & Traceability**: Every AI output links to its sources
 
@@ -37,11 +27,6 @@ source .venv/bin/activate
 pip install -r requirements.txt
 
 # Configure
-cp .env.example .env
-# Add your API keys (OPENAI_API_KEY, GEMINI_API_KEY, etc.)
-
-# Ingest documents
-python -m app.ingest
 
 # Run server
 uvicorn app.server:create_app --factory --reload
@@ -51,7 +36,7 @@ uvicorn app.server:create_app --factory --reload
 
 ```
 launchpad_ai/
-├── app/                    # Core application code
+├── app/                   # Core application code
 │   ├── ingest.py          # Document ingestion (PDF, DOCX, TXT)
 │   ├── retrieval.py       # Vector similarity search
 │   ├── embed.py           # Multi-provider embedding wrapper
@@ -63,13 +48,47 @@ launchpad_ai/
 ├── artifacts/             # Vector stores, indexes (gitignored)
 ├── runs/                  # Processing runs (gitignored)
 ├── docs/                  # Project documentation
-│   ├── VISION.md         # Project vision & philosophy
-│   ├── ROADMAP.md        # Implementation roadmap
-│   └── ARCHITECTURE.md   # Technical architecture
+│   ├── VISION.md          # Project vision & philosophy
+│   ├── ROADMAP.md         # Implementation roadmap
+│   └── ARCHITECTURE.md    # Technical architecture
 ├── scripts/               # Helper scripts
 ├── tests/                 # Test suite
 └── requirements.txt       # Python dependencies
 ```
+
+## Architecture Diagram
+
+```mermaid
+flowchart LR
+  A[Input Documents<br/>PDF, DOCX, TXT, Images] --> B[Ingestion Pipeline<br/>extract + normalize]
+  B --> C[Quality Gates<br/>word count, retention, validation]
+  C --> D[Chunking<br/>token-aware splitting]
+  D --> E[Embedding Layer<br/>OpenAI / Gemini / Anthropic]
+  E --> F[(Vector Store<br/>FAISS Index)]
+
+  Q[User Query] --> QE[Query Embedding]
+  QE --> F
+  F --> R[Top-k Retrieval<br/>with metadata]
+  R --> CAL[Calibration Context<br/>expert examples]
+  CAL --> O[Structured Output<br/>answer + citations + confidence]
+```
+
+This flow is intentionally provider-agnostic and configuration-driven so each stage can evolve without changing your application layer.
+
+### Calibration Loop (Expert Feedback)
+
+```mermaid
+flowchart LR
+  H[Human Expert Review<br/>grade / feedback / correction] --> S[Store Calibration Example<br/>input + expert decision + metadata]
+  S --> V[(Calibration Vector Store)]
+  N[New Incoming Input] --> EN[Embed Input]
+  EN --> V
+  V --> M[Retrieve Similar Expert Examples]
+  M --> G[Guided Generation / Scoring]
+  G --> O[Output with rationale<br/>and citations]
+```
+
+This loop helps the system improve consistency over time by grounding new decisions in similar expert-approved examples.
 
 ## Example Applications
 
