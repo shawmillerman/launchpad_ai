@@ -6,7 +6,7 @@ Launchpad AI provides the foundational infrastructure to build AI-powered applic
 
 ## Purpose
 
-Build once, launch many. Launchpad AI extracts the reusable patterns from production AI applications (like Project Blackboard's assessment engine and Clean IQ's course chatbot) into a general-purpose toolkit.
+Build once, launch many. Launchpad AI extracts the reusable patterns from production AI applications (including a rubric-based assessment engine and an LMS course chatbot) into a general-purpose toolkit.
 
 ## What it provides
 
@@ -18,7 +18,7 @@ Build once, launch many. Launchpad AI extracts the reusable patterns from produc
 - **Quality Gates**: Validation before processing (garbage-in detection)
 - **Citation & Traceability**: Every AI output links to its sources
 
-### Design Principles (from Project Blackboard)
+### Design Principles
 - **Transparent**: Every decision is auditable with citations
 - **Configuration-as-Code**: Behavior driven by config files, not buried in code
 - **Calibration Loop**: System learns from expert feedback
@@ -167,7 +167,7 @@ These belong in your application layer that uses Launchpad AI.
 
 ## License
 
-Private repository. Add license if publishing.
+MIT — see [LICENSE](LICENSE).
 
 ## Next Steps
 

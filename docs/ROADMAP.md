@@ -350,7 +350,7 @@ See: `docs/applications/STEPCHEF.md`
 
 ### Decision 3: Configuration-Driven Behavior
 **Date**: 2026-01-24  
-**Rationale**: Learned from Project Blackboard that hardcoded rules are maintenance nightmares. Config files enable rapid iteration.
+**Rationale**: Learned from a prior production assessment platform that hardcoded rules are maintenance nightmares. Config files enable rapid iteration.
 
 ### Decision 4: Quality Gates First
 **Date**: 2026-01-24  
@@ -395,7 +395,7 @@ See: `docs/applications/STEPCHEF.md`
 
 4. **Week 3-4**:
    - Implement calibration engine (Phase 4)
-   - Build example application (Step Chef or Clean IQ v2)
+   - Build example application (Step Chef or course chatbot reference)
 
 ---
 

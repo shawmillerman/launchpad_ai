@@ -60,7 +60,7 @@ Don't lock into one LLM provider:
 
 Plug-and-play architecture.
 
-## Design Principles (from Project Blackboard)
+## Design Principles
 
 Launchpad AI inherits proven patterns from production systems:
 
@@ -85,10 +85,10 @@ Launchpad AI inherits proven patterns from production systems:
 ## Use Cases
 
 ### Assessment Systems
-Ground grading in rubrics and calibration examples (Project Blackboard model).
+Ground grading in rubrics and calibration examples from a prior edtech assessment platform.
 
 ### Course Chatbots
-Answer student questions from official course materials (Clean IQ model).
+Answer student questions from official course materials, derived from a production LMS chatbot.
 
 ### Recipe Assistants
 Extract recipes from images, reformulate for dietary needs, guide cooking (Step Chef).
@@ -136,7 +136,7 @@ Launchpad AI succeeds when:
 
 ### Phase 4: Example Applications
 - Step Chef (recipe assistant)
-- Clean IQ v2 (course chatbot)
+- Course chatbot reference implementation
 - [Your idea here]
 
 ## Getting Started

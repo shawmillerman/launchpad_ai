@@ -145,7 +145,7 @@ class RecipeCalibration:
    - MVP scope (2 weeks)
    - Future enhancements
 
-4. ✅ **Clean IQ Model Applied**
+4. ✅ **Reference Project Structure Applied**
    - Copied structure: `app/`, `docs/`, `data/`, `artifacts/`
    - Requirements.txt with all dependencies
    - .env.example for configuration
@@ -197,7 +197,7 @@ pip install -e ../launchpad_ai
 1. ✅ Launchpad AI: Generic, reusable AI engine
 2. ✅ Multi-provider LLM support (plug-and-play)
 3. ✅ Generic calibration (works for any domain)
-4. ✅ Clean IQ structure applied
+4. ✅ Reference project structure applied
 5. ✅ Step Chef concept complete
 
 **Next session** (when you have 1-2 hours):
