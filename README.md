@@ -2,7 +2,7 @@
 
 **A product-agnostic AI engine for rapid application development.**
 
-> **Origin story**: After shipping [Project Blackboard](https://github.com/shawmillerman/project-blackboard) — a production AI grading system — I extracted the reusable infrastructure patterns into this general-purpose engine. Build once, launch many.
+> **Origin story**: After shipping [Project Blackboard](https://github.com/shawmillerman/project-blackboard), a production AI grading system, I extracted the reusable infrastructure patterns into this general-purpose engine. Build once, launch many.
 
 ## What it provides
 - **Quality Gates**: Validation before processing (garbage-in detection)
