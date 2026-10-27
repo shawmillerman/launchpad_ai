@@ -29,6 +29,10 @@ from typing import List, Optional
 import streamlit as st
 from dotenv import load_dotenv
 
+# Suppress Streamlit secrets.toml warnings (we use .env instead)
+import warnings
+warnings.filterwarnings("ignore", message=".*secrets.toml.*")
+
 from langchain_community.document_loaders import (
     DirectoryLoader,
     PyPDFLoader,
