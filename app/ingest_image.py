@@ -1,47 +1,72 @@
-"""Image OCR ingest using Tesseract.
+import os
+import mimetypes
+from google import genai
+from google.genai import types
 
-Requires:
-- pytesseract
-- pillow
-- Tesseract installed on system (e.g., `brew install tesseract` on macOS)
-"""
-from pathlib import Path
-from typing import Any, Dict, List, Optional
+class ImageIngestionPipeline:
+    def __init__(self, provider="gemini"):
+        self.provider = provider
+        # The modern client automatically picks up GEMINI_API_KEY from your environment
+        self.client = genai.Client()
 
-import pytesseract
-from PIL import Image
+    def _call_vision_api(self, image_path: str, extraction_warnings: list) -> str:
+        if not os.path.exists(image_path):
+            raise FileNotFoundError(f"File not found at {image_path}")
 
-from .chunking import split_by_tokens
-from .embed import embed_texts
+        # Dynamically infer the image MIME type
+        mime_type, _ = mimetypes.guess_type(image_path)
+        if not mime_type:
+            mime_type = "image/jpeg"
+            extraction_warnings.append("MIME type could not be inferred; defaulting to image/jpeg.")
 
+        # Quick validation guard
+        supported_types = ["image/jpeg", "image/png", "image/webp", "image/heic", "image/heif"]
+        if mime_type not in supported_types:
+            extraction_warnings.append(f"Unsupported MIME type '{mime_type}'. Processing may fail.")
 
-def ocr_image(path: str) -> str:
-    if not Path(path).exists():
-        raise FileNotFoundError(f"Missing image file: {path}")
-    img = Image.open(path)
-    return pytesseract.image_to_string(img)
+        try:
+            with open(image_path, "rb") as f:
+                image_bytes = f.read()
 
+            if not image_bytes:
+                extraction_warnings.append("Empty file binary processed.")
+                return ""
 
-def ingest_image(
-    path: str,
-    base_metadata: Optional[Dict[str, Any]] = None,
-    max_tokens: int = 500,
-    overlap: int = 100,
-) -> List[Dict[str, Any]]:
-    base_metadata = base_metadata or {}
-    raw_text = ocr_image(path)
-    text = raw_text.strip()
-    if not text:
-        raise ValueError(f"No OCR text extracted from {path}")
+            # Clean modern google-genai client syntax
+            response = self.client.models.generate_content(
+                model="gemini-2.5-flash",
+                contents=[
+                    types.Part.from_bytes(data=image_bytes, mime_type=mime_type),
+                    "Transcribe all text from this image exactly. Return only the transcribed text with no commentary."
+                ]
+            )
 
-    chunks = split_by_tokens(text, max_tokens=max_tokens, overlap=overlap)
-    embeddings = embed_texts(chunks)
+            if not response.text:
+                extraction_warnings.append("API returned an empty text string response.")
+                return ""
 
-    records: List[Dict[str, Any]] = []
-    for i, chunk in enumerate(chunks):
-        md = dict(base_metadata)
-        md["chunk_index"] = i
-        md["source_type"] = "image_ocr"
-        md["source_file"] = Path(path).name
-        records.append({"chunk": chunk, "embedding": embeddings[i], "metadata": md})
-    return records
+            return response.text
+
+        except Exception as e:
+            extraction_warnings.append(f"Gemini API Exception occurred: {str(e)}")
+            raise e
+
+    def extract_text(self, image_path: str) -> dict:
+        extraction_warnings = []
+        raw_text = ""
+        
+        try:
+            raw_text = self._call_vision_api(image_path, extraction_warnings)
+        except Exception:
+            # Let the pipeline structure return gracefully with the warning caught
+            pass
+
+        return {
+            "source_file": image_path,
+            "content": raw_text,
+            "metadata": {
+                "quality_signals": {
+                    "extraction_warnings": extraction_warnings
+                }
+            }
+        }

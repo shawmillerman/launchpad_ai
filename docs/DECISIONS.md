@@ -109,7 +109,7 @@ CalibrationExample(
 Build **on top** of generic calibration:
 
 ```python
-# stepchef/calibration.py
+# prepstation/calibration.py
 class RecipeCalibration:
     def __init__(self, engine: LaunchpadAI):
         self.engine = engine
@@ -119,7 +119,7 @@ class RecipeCalibration:
         self.engine.calibration.add_example(...)
 ```
 
-**Benefit**: Launchpad AI stays reusable, Step Chef adds recipe-specific logic.
+**Benefit**: Launchpad AI stays reusable, Prepstation adds recipe-specific logic.
 
 ---
 
@@ -139,7 +139,7 @@ class RecipeCalibration:
    - Success criteria and metrics
    - Decision log
 
-3. ✅ **Step Chef Concept**
+3. ✅ **Prepstation Concept**
    - Complete feature spec
    - Technical architecture
    - MVP scope (2 weeks)
@@ -159,12 +159,12 @@ Using clean_iq as the template was the smart move. We now have:
 
 ---
 
-## 5. Step Chef - Minimal Work
+## 5. Prepstation - Minimal Work
 
 ✅ **Done - Concept Captured!**
 
 ### What's Ready:
-- [x] Complete concept document (`docs/applications/STEPCHEF.md`)
+- [x] Complete concept document (`docs/applications/PREPSTATION.md`)
 - [x] Feature specifications
 - [x] Technical architecture 
 - [x] MVP scope (2-week plan)
@@ -173,18 +173,18 @@ Using clean_iq as the template was the smart move. We now have:
 - [x] Future roadmap
 
 ### No Code Yet - By Design
-Step Chef waits for Launchpad AI Phases 1-3 to complete.
+Prepstation waits for Launchpad AI Phases 1-3 to complete.
 
 **When you're ready** (after Launchpad AI is built):
 ```bash
-# Create stepchef repo
-mkdir /Users/admin/stepchef
-cd /Users/admin/stepchef
+# Create prepstation repo
+mkdir /Users/admin/prepstation
+cd /Users/admin/prepstation
 
 # Install Launchpad AI as dependency
 pip install -e ../launchpad_ai
 
-# Build Step Chef-specific features (2 weeks)
+# Build Prepstation-specific features (2 weeks)
 # 80% infrastructure comes from Launchpad AI
 # 20% recipe-specific logic
 ```
@@ -198,7 +198,7 @@ pip install -e ../launchpad_ai
 2. ✅ Multi-provider LLM support (plug-and-play)
 3. ✅ Generic calibration (works for any domain)
 4. ✅ Reference project structure applied
-5. ✅ Step Chef concept complete
+5. ✅ Prepstation concept complete
 
 **Next session** (when you have 1-2 hours):
 - Implement Phase 1: Ingestion pipeline

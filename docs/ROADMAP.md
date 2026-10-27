@@ -19,9 +19,9 @@
 
 **Total**: ~5 weeks to production-ready engine
 
-**Parallel work**: Step Chef MVP can begin after Phase 3 (Feb 14), allowing overlap with Phase 4.
+**Parallel work**: Prepstation MVP can begin after Phase 3 (Feb 14), allowing overlap with Phase 4.
 
-**Lean path for Step Chef (1 week)**: Build only what Step Chef needs—PDF/TXT+OCR ingest, single-provider OpenAI embeddings, minimal FAISS retrieval, light config/env, basic logging. Skip multi-provider abstractions, calibration, and full schema validation until after MVP.
+**Lean path for Prepstation (1 week)**: Build only what Prepstation needs—PDF/TXT+OCR ingest, single-provider OpenAI embeddings, minimal FAISS retrieval, light config/env, basic logging. Skip multi-provider abstractions, calibration, and full schema validation until after MVP.
 
 **Assumptions**: Full-time solo dev, 40 hrs/week. Adjust timeline proportionally for part-time work.
 
@@ -44,7 +44,7 @@ This roadmap tracks the phased implementation of Launchpad AI as a product-agnos
 - [x] Project structure (clean_iq model)
 - [x] Core documentation (README, VISION, ROADMAP)
 - [x] Architecture design document
-- [x] Example application concepts (Step Chef)
+- [x] Example application concepts (Prepstation)
 - [x] Requirements baseline
 
 ### Deliverables
@@ -298,12 +298,12 @@ Phase 3 complete (need retrieval for calibration search)
 
 ## Example Applications
 
-### Step Chef (Recipe Assistant)
+### Prepstation (Recipe Assistant)
 
 **Timeline**: 1-2 weeks after Phase 3  
 **Status**: Concept phase
 
-See: `docs/applications/STEPCHEF.md`
+See: `docs/applications/PREPSTATION.md`
 
 **What it demonstrates:**
 - Recipe text extraction (PDF/image OCR)
@@ -317,7 +317,7 @@ See: `docs/applications/STEPCHEF.md`
 - Quality gates (valid recipe structure)
 - Calibration (learn from user preferences)
 
-**Step Chef-specific code:**
+**Prepstation-specific code:**
 - Recipe parsing logic
 - Flavor reformulation algorithms
 - Cooking timer integration
@@ -381,7 +381,7 @@ See: `docs/applications/STEPCHEF.md`
 
 1. **Immediate (15 minutes)**:
    - ✅ Complete documentation (this file)
-   - ✅ Capture Step Chef concept
+   - ✅ Capture Prepstation concept
    - ✅ Create TODO checklist
 
 2. **Next Session (1-2 hours)**:
@@ -395,7 +395,7 @@ See: `docs/applications/STEPCHEF.md`
 
 4. **Week 3-4**:
    - Implement calibration engine (Phase 4)
-   - Build example application (Step Chef or course chatbot reference)
+   - Build example application (Prepstation or course chatbot reference)
 
 ---
 

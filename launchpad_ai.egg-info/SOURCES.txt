@@ -1,0 +1,17 @@
+LICENSE
+README.md
+pyproject.toml
+app/__init__.py
+app/chunking.py
+app/docx_reader.py
+app/embed.py
+app/ingest.py
+app/ingest_image.py
+app/ingest_text_file.py
+app/retrieval.py
+app/vector_store.py
+launchpad_ai.egg-info/PKG-INFO
+launchpad_ai.egg-info/SOURCES.txt
+launchpad_ai.egg-info/dependency_links.txt
+launchpad_ai.egg-info/requires.txt
+launchpad_ai.egg-info/top_level.txt

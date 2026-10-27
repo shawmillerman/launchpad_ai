@@ -92,11 +92,11 @@ This loop helps the system improve consistency over time by grounding new decisi
 
 ## Example Applications
 
-### Step Chef (Recipe Assistant)
+### Prepstation (Recipe Assistant)
 Status: Concept phase  
-An AI cooking assistant that reformulates recipes, guides step-by-step, and provides real-time cooking alerts.
+An AI cooking assistant that captures recipe photos, restructures them into a custom schema, enhances instructions, and teaches the why behind each step.
 
-See: [docs/applications/STEPCHEF.md](docs/applications/STEPCHEF.md)
+See: [docs/applications/PREPSTATION.md](docs/applications/PREPSTATION.md)
 
 ### Your Next Idea
 Launchpad AI provides:
@@ -108,7 +108,7 @@ Launchpad AI provides:
 
 ## How to Build an App with Launchpad AI
 
-1. Place your app repo alongside this one (e.g., launchpad_ai/ and step_chef/ as sibling folders).
+1. Place your app repo alongside this one (e.g., launchpad_ai/ and prepstation/ as sibling folders).
 2. In your app repo, install Launchpad AI in editable mode:
   ```bash
   pip install -e ../launchpad_ai
@@ -120,7 +120,7 @@ Launchpad AI provides:
   - Ingest docs via [app/ingest.py](app/ingest.py) (once implemented)
   - Embed via [app/embed.py](app/embed.py) with provider chosen in .env
   - Retrieve via [app/retrieval.py](app/retrieval.py) (vector search with metadata)
-5. Keep your domain logic in your app (e.g., recipe parsing in step_chef/app/); keep generic infra in Launchpad AI.
+5. Keep your domain logic in your app (e.g., recipe parsing in prepstation/app/); keep generic infra in Launchpad AI.
 
 ## LLM Provider Support
 

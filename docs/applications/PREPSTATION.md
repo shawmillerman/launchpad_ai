@@ -1,7 +1,7 @@
-# Step Chef - AI Cooking Assistant
+# Prepstation - AI Cooking Assistant
 
 **Status**: Concept Phase ✅ **Fully Documented**  
-**Repository**: `/Users/admin/stepchef` (uses Launchpad AI)  
+**Repository**: `/Users/admin/prepstation` (uses Launchpad AI)  
 **Timeline**: 1-2 weeks after Launchpad AI Phase 3
 
 ---
@@ -21,7 +21,7 @@ This version captures all ideas from your conversations, including:
 
 ## Vision
 
-Step Chef is an AI cooking assistant that transforms how people cook by:
+Prepstation is an AI cooking assistant that transforms how people cook by:
 - Reformulating recipes for maximum flavor
 - Providing interactive step-by-step guidance
 - Adapting to dietary needs and skill levels
@@ -64,7 +64,7 @@ Step Chef is an AI cooking assistant that transforms how people cook by:
 
 1. **Upload Recipe**
    - Take photo of recipe card, PDF, or paste text
-   - Step Chef extracts: "Spaghetti Carbonara, 4 servings"
+   - Prepstation extracts: "Spaghetti Carbonara, 4 servings"
    - **Brief Recipe Analysis** (new step):
      - Evaluates the recipe structure
      - Identifies improvement opportunities
@@ -95,7 +95,7 @@ Step Chef is an AI cooking assistant that transforms how people cook by:
 
 4. **Learn Over Time**
    - You rate the recipe 5 stars
-   - Step Chef remembers: "User likes spicy Italian, values flavor over speed"
+   - Prepstation remembers: "User likes spicy Italian, values flavor over speed"
    - Future recipes: More chili, garlic, umami suggestions, and flavor-engineering techniques
    - Tracks your success rate on different techniques (e.g., "You nail deglazing—let's try more pan sauces")
 
@@ -136,7 +136,7 @@ Message: "I know you're a baller chef, because deglazing is what baller chefs do
 ```
 Basic Recipe: "Put beef, onions, spices in crockpot"
 
-Step Chef Enhancement:
+Prepstation Enhancement:
 1. [5 min] Sear beef cubes on high heat until brown
    Why: Maillard reaction creates depth and complexity
    
@@ -167,7 +167,7 @@ Result: Exponentially more complex, developed flavor
 ```
 ❌ Standard Approach: Prep everything (15 min) → Cook (10 min) = 25 min total
 
-✅ Step Chef Approach:
+✅ Prepstation Approach:
    Step 1: [2 min] Start rice + water boiling
    Step 2: [3 min] Prep hard veggies while rice boils
    Step 3: [3 min] Rice now cooking → prep soft veggies
@@ -281,7 +281,7 @@ User: "Yes, but make it 3 minutes"
 - Removes anxiety from cooking (you're never truly stuck)
 - Hands-free = realistic for actual cooking (not reading while handling food)
 - Teaches problem-solving, not just following steps
-- Transforms Step Chef from "recipe bot" to "live coach"
+- Transforms Prepstation from "recipe bot" to "live coach"
 
 **Implementation notes**:
 - Uses Launchpad AI's LLM layer for diagnosis
@@ -308,7 +308,7 @@ Not just substitutions—**actual flavor engineering** that teaches proper techn
 Basic Recipe:
 "Put beef roast, onions, and spices in crockpot"
 
-Step Chef Enhancement (Flavor Engineering):
+Prepstation Enhancement (Flavor Engineering):
 1. Sear beef cubes 8 minutes in hot pot → Maillard browning
 2. Remove and set aside
 3. Cook onions in beef fat → builds fond
@@ -327,7 +327,7 @@ Step Chef Enhancement (Flavor Engineering):
 **Example: Chicken Stir-Fry**
 ```
 Standard approach: Prep everything (15 min), then cook (10 min)
-Step Chef approach:
+Prepstation approach:
 - Start rice/water (2 min) → while boiling, start prep
 - Prep hard veggies (carrots, broccoli stems) - 3 min
 - Rice is now cooking → prep soft veggies while waiting
@@ -367,7 +367,7 @@ Uses Launchpad AI's calibration engine:
 
 ### Launchpad AI Components Used
 
-| Component | How Step Chef Uses It |
+| Component | How Prepstation Uses It |
 |-----------|----------------------|
 | **Ingestion** | Extract recipes from PDFs, images, text |
 | **Quality Gates** | Validate recipe structure (has ingredients? has steps?) |
@@ -376,10 +376,10 @@ Uses Launchpad AI's calibration engine:
 | **Calibration** | Learn from your ratings and cooking success |
 | **Multi-Provider LLMs** | Use Gemini for reformulation, OpenAI for Q&A |
 
-### Step Chef-Specific Code
+### Prepstation-Specific Code
 
 ```
-stepchef/
+prepstation/
 ├── app/
 │   ├── recipe_parser.py      # Extract ingredients & steps from text
 │   ├── reformulator.py       # Flavor profile transformations
@@ -410,19 +410,19 @@ stepchef/
 
 ### Beginner Cook
 *"I'm new to cooking and recipes are confusing."*
-- Step Chef simplifies: Fewer steps, more explanations
+- Prepstation simplifies: Fewer steps, more explanations
 - Detects when you're stuck: "Need help with this step?"
 - Learns your pace: Adjusts timing suggestions
 
 ### Home Chef
 *"I want to make recipes more flavorful."*
-- Step Chef reformulates: "Add fish sauce for umami"
+- Prepstation reformulates: "Add fish sauce for umami"
 - Suggests techniques: "Try dry-brining overnight"
 - Explains why: "Maillard reaction creates complexity"
 
 ### Dietary Restrictions
 *"I'm vegan but love Italian food."*
-- Step Chef adapts: "Use nutritional yeast instead of parmesan"
+- Prepstation adapts: "Use nutritional yeast instead of parmesan"
 - Maintains flavor: "Add miso for umami depth"
 - Learns preferences: "You prefer cashew cream over soy"
 
@@ -523,7 +523,7 @@ Output:
 
 ## Competitive Positioning
 
-| Feature | Step Chef | Recipe Apps | ChatGPT |
+| Feature | Prepstation | Recipe Apps | ChatGPT |
 |---------|-----------|-------------|---------|
 | Recipe reformulation | ✅ Flavor-engineered | ❌ Basic substitutions | ✅ Generic suggestions |
 | Interactive cooking | ✅ Real-time guidance | ⚠️ Static instructions | ❌ No real-time |
@@ -562,14 +562,14 @@ Output:
 ## Getting Started (After Launchpad AI is Ready)
 
 ```bash
-# Clone Step Chef
-git clone <stepchef-repo>
-cd stepchef
+# Clone Prepstation
+git clone <prepstation-repo>
+cd prepstation
 
 # Install Launchpad AI (as dependency)
 pip install -e ../launchpad_ai
 
-# Install Step Chef requirements
+# Install Prepstation requirements
 pip install -r requirements.txt
 
 # Configure
@@ -591,10 +591,10 @@ python -m app.cook --recipe examples/carbonara.txt --profile spicy
 
 ---
 
-**Step Chef Status**: Concept complete, ready for implementation once Launchpad AI Phase 3 is done.
+**Prepstation Status**: Concept complete, ready for implementation once Launchpad AI Phase 3 is done.
 
 **Next Steps**:
 1. Finish Launchpad AI Phases 1-3
-2. Build Step Chef MVP (2 weeks)
+2. Build Prepstation MVP (2 weeks)
 3. Test with 10 beta users
 4. Iterate based on feedback
