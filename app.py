@@ -411,7 +411,7 @@ Do NOT answer the question, just reformulate it if needed and otherwise return i
     qa_prompt = ChatPromptTemplate.from_messages([
         ("system", qa_system_prompt),
         MessagesPlaceholder("chat_history"),
-        ("human", "{input}"),
+        ("human", "Context:\n{context}\n\nQuestion: {input}"),
     ])
 
     question_answer_chain = create_stuff_documents_chain(llm, qa_prompt)
